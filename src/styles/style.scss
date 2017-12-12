@@ -1,0 +1,110 @@
+@import "functions";
+@import "typography";
+
+// VARIABLES
+// ------------------------------------------
+// Colors
+$color_background:          #EEE;
+$color_background_header:   #555;
+$color_background_content:  #FFF;
+$color_background_footer:   #CCC;
+$color_text_header:         #FFF;
+$color_text_content:        #222;
+$color_text_footer:         #222;             
+
+$color_brand:             crimson;
+$color_anchor:            $color_brand;
+
+
+// Fonts
+$font_size_base:          14px;
+$font_size_small:         12px;
+$font_text:               Arial, Helvetica, sans-serif;
+$font_mono:               "Courier New", monospace;
+$baseline-ratio:          1.61 !global;
+$heading-ratio:           1.13 !global;
+
+// Line height
+@function line_height($font-size) { @return floor($font-size * $baseline-ratio); }
+
+// Geometry
+$max_width:               700px;
+$pad:                     line_height($font_size_base); // Default padding
+$rad:                     5px; // Default border radius
+
+
+
+
+// Text
+@include headlines;
+
+%text {
+  @include fontRhythm($font_size_base, $font_size_base);
+}
+
+
+
+
+// STYLES
+// ------
+
+// Basic typography
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 $pad 0;
+
+  &:last-child { margin: 0; }
+}
+
+p {
+  @extend %text;
+  margin: 0 0 $pad 0;
+
+  &:last-child { margin: 0; }
+}
+
+a {
+  color: $color_anchor;
+  text-decoration: none;
+}
+
+// Basic elements
+.background {
+  width: 100%;
+  height: 100%;
+  background-color: $color_background;
+  box-sizing: border-box;
+  padding: round($pad/2) $pad;
+}
+
+.email {
+  font-family: $font_text;
+  @extend %text;
+
+  max-width: $max_width;
+  margin: 0 auto;
+  border-radius: $rad;
+  overflow: hidden;
+  
+  .header, .content, .footer {
+    padding: round($pad/2) $pad;
+  }
+  
+  .header {
+    background-color: $color_background_header;
+    color: $color_text_header;
+  }
+  
+  .content {
+    background-color: $color_background_content;
+    color: $color_text_content;
+  }
+  
+  .footer {
+    background-color: $color_background_footer;
+    color: $color_text_footer;
+
+    p {
+      @include fontRhythm($font_size_small, $font_size_base);
+    }
+  }
+}

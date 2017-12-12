@@ -1,0 +1,35 @@
+// RESPONSIVE headline sizes and margins
+@mixin headlines {
+  // Calculate headline sizes
+  $h6: round($font_size_base * $heading-ratio);
+  $h5: round($font_size_base * power($heading-ratio, 2));
+  $h4: round($font_size_base * power($heading-ratio, 3));
+  $h3: round($font_size_base * power($heading-ratio, 4));
+  $h2: round($font_size_base * power($heading-ratio, 5));
+  $h1: round($font_size_base * power($heading-ratio, 6));
+  
+  h1 {
+    @include fontRhythm($h1, $font_size_base); 
+    margin-bottom: $pad;
+  }
+  h2 {
+    @include fontRhythm($h2, $font_size_base);
+    margin-bottom: $pad;
+  }
+  h3 {
+    @include fontRhythm($h3, $font_size_base);
+    margin-bottom: $pad;
+  }
+  h4 {
+    @include fontRhythm($h4, $font_size_base);
+    margin-bottom: $pad;
+  }
+  h5 {
+    @include fontRhythm($h5, $font_size_base);
+    margin-bottom: $pad;
+  }
+  h6 {
+    @include fontRhythm($h6, $font_size_base);
+    margin-bottom: $pad;
+  }
+}

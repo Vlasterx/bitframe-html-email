@@ -1,0 +1,96 @@
+// Math functions
+// -------------------------------------------------------------------------------
+@function power ($x, $n) {
+  $ret: 1;
+  @if $n>=0 {
+    @for $i from 1 through $n {
+      $ret: $ret * $x;
+    }
+  }
+  @else {
+    @for $i from $n to 0 {
+      $ret: $ret / $x;
+    }
+  }
+  @return $ret;
+}
+
+@function sqrt($x) {
+  @return exp(0.5 * ln($x));
+}
+
+@function even($number) {
+  @return $number % 2;
+}
+
+// Nearest even number
+// This functions rounds up a number and then return next even number
+@function nearestEven($number) {
+  $even: strip-units(round($number));
+  $test: $even % 2;
+  // Number is even - return it
+  @if ($test==0) {
+    @return $even;
+  }
+  // Number is not even, return next even number
+  @else {
+    @return $even+1;
+  }
+}
+
+
+
+// SASS functions
+// -------------------------------------------------------------------------------
+
+// Strip units
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+
+// Convert any unit to px
+@function px($number) {
+  @return strip-units($number) * 1px;
+}
+
+// Check boolean value
+@function bool($value: false) {
+  @if $value==false or $value=="" or $value=="false" or $value=='false' or $value==0 {
+    @return false;
+  }
+  @return true;
+}
+
+
+
+// TYPOGRAPHIC GRID FUNCTIONS
+// -------------------------------------------------------------------------------
+
+// Baseline height
+// ---------------
+// Baseline height is height of a text line in typographic grid.
+// Result of this calculation will adapt to font size. If font size is higher
+// than baseline height, baseline height will be increased by one more
+// baseline height for default font size for that resolution
+
+// Input values are in pixel units
+// $sizePx - your custom font size
+// $baseSizePx - base font size for given resolution (from /styles/config_media.json)
+// $baseRatio - your custom baseline ratio OR, if empty, $baseline-ratio from theme config
+// Returned value is rounded up to whole pixels
+@function baselineHeight($sizePx, $baseSizePx, $baseRatio: $baseline-ratio) {
+  $calcBaseline: $baseSizePx * $baseRatio;
+
+  @return round((floor($sizePx / $calcBaseline) + 1) * $calcBaseline);
+}
+
+// COMMON MIXINS
+// -------------------------------------------------------------------------------
+
+// Font Rhythm
+// -----------
+// Renders correct font size and line height calculation
+@mixin fontRhythm($sizePx, $baseFontPx) {
+  font-size: $sizePx;
+  line-height: baselineHeight($sizePx, $baseFontPx);
+}

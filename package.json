@@ -1,0 +1,42 @@
+{
+  "name": "bitersen-emails",
+  "version": "3.0.0",
+  "description": "Bitersen HTML Email Builder",
+  "devDependencies": {
+    "cli-color": "^1.2.0",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-cleancss": "^0.2.2",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-group-css-media-queries": "^1.2.0",
+    "gulp-header": "^1.8.9",
+    "gulp-html-beautify": "^1.0.1",
+    "gulp-inline-css": "^3.1.1",
+    "gulp-inline-image-html": "^0.2.2",
+    "gulp-plumber": "^1.1.0",
+    "gulp-plumber-notifier": "^0.0.3",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "panini": "^1.5.1",
+    "require-dir": "^0.3.2",
+    "run-sequence": "^2.2.0",
+    "time-stamp": "^2.0.0"
+  },
+  "repository": {
+    "url": "git+https://github.com/Bitersen/bitframe-html-email.git",
+    "type": "git"
+  },
+  "private": true,
+  "homepage": "https://github.com/Bitersen/bitframe-html-email.git",
+  "main": "gulpfile.js",
+  "scripts": {
+    "start": "gulp watch"
+  },
+  "author": {
+    "name": "Vladimir Jovanović",
+    "email": "vladimir@bitersen.com",
+    "url": "https://www.bitersen.com"
+  },
+  "license": "MIT"
+}
