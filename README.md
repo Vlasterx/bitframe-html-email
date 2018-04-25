@@ -34,4 +34,4 @@ You will notice that rendered templates are missing some of the regular HTML tag
 
 ## Author
 Vladimir Jovanović
-[Personal site](https://www.webdizajn.org) | [Bitersen](https://www.bitersen.com) | [Twitter](https://twitter.com/vlasterx) | [Facebook](https://vx.rs/face) | [LinkedIn](http://vx.rs/linkedin) | [Medium blog](https://www.medium.com/bitersen) 
+[Bitersen](https://www.bitersen.com) | [Facebook](https://vx.rs/face) | [LinkedIn](http://vx.rs/linkedin) | [Medium blog](https://www.medium.com/bitersen) 
